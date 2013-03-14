@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Webcam-based gesture recognition with reveal.js</title>
+
+        <meta name="description" content="Webcam-based gesture recognition with reveal.js">
+        <meta name="author" content="William Wu (reveal.js by Hakim El Hattab)">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <section>
+                        <h1>gesture controlled home automation</h1>
+                        <p>
+                            <br>
+                        </p>
+                        <p>
+                        <u>
+                            <b>Project by&nbsp;</b>
+                        </u>
+                        </p>
+                        <p>
+                            <font face="trebuchet ms">Kanishka Ganguly</font>
+                        </p>
+                        <p>
+                            <font face="trebuchet ms">2nd Year</font>
+                        </p>
+                        <p>
+                            <font face="trebuchet ms">B.E. Computer Science and Engineering</font>
+                        </p>
+                        <p>
+                            <font face="trebuchet ms">BIT Mesra</font>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>THE DETAILS</h2>
+                        <div>
+                            <br>
+                        </div>
+                        <div>I had an existing project with Arduino to implement a Home Automation system using the Ethernet Shield.</div>
+                        <div>
+                            <br>
+                        </div>
+                        <div>Then, I chanced upon the work of William Wu, who had used Hakim El Hattab's <font face="impact">
+                            <a href="https://github.com/hakimel/reveal.js">reveal.js</a>&nbsp;</font>
+                            <font face="arial">library and a JavaScript and HTML5 based gesture recognition script to change the slides in a sample slideshow.</font>
+                        </div>
+                        <div>
+                            <font face="arial">
+                            <br>
+                            </font>
+                        </div>
+                        <div>
+                            <font face="arial">The obvious step was to integrate the JS script by Wu into my existing Arduino system to give me gesture recognition on a plane and thus give me the&nbsp;</font>
+                        </div>
+                        <div>
+                            <font face="arial">
+                            <b>Gesture Controlled Home Automation System</b>.</font>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>HOW IT WORKS</h2>
+                        <div>
+                            <br>
+                        </div>
+                        <div>The JS script by Wu detects motion in a plane using the webcam and Chrome's HTML5 &lt;video&gt; tag.</div>
+                        <div>It detects motion in UP, DOWN, LEFT and RIGHT directions and I could now command my Arduino to do the following set of actions :<br>
+                            <font color="#33ccff">UP = LIGHT ON</font>
+                        </div>
+                        <div>
+                            <font color="#33ccff">DOWN = LIGHT OFF</font>
+                        </div>
+                        <div>
+                            <font color="#33ccff">LEFT = FAN ON</font>
+                        </div>
+                        <div>
+                            <font color="#33ccff">RIGHT = FAN OFF</font>
+                        </div>
+                        <div>
+                            <br>
+                        </div>
+                        <div>The JS script sends a JQuery POST request to a PHP script which in turn uses a switch-case block to send a cURL GET request to my Arduino.</div>
+                    </section>
+                </section>
+            </div>
+
+        </div>
+
+        <style>
+            #comp{
+                position:fixed;
+                left:0;
+                top:0;
+                width:100%;
+                height:100%;
+                opacity:0.1;
+            }
+        </style>
+        <div id="disp"><canvas id="comp"></canvas></div>
+        <video id="video" autoplay width="300" style="display:none"></video>
+        <canvas id="canvas" style="width:300px;display:none;"></canvas>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>	
+        <script src="js/mygesture.js"></script>	
+    </body>
+</html>
